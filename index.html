@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,237 +7,44 @@
   <meta name="description" content="Biodiversity and Paleogenomics Group, Ecology, Biodiversity and Evolution, Department of Biosciences, University of Oslo.">
   <title>Biodiversity and Paleogenomics Group | University of Oslo</title>
   <style>
-    :root {
-      --ink: #14241f;
-      --muted: #53635c;
-      --paper: #f6f4ee;
-      --sand: #e8e1d2;
-      --forest: #183d35;
-      --moss: #6f8f70;
-      --clay: #b65c3b;
-      --line: rgba(20, 36, 31, .16);
-      --white: #fffefa;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      color: var(--ink);
-      background: var(--paper);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.6;
-    }
-    a { color: inherit; text-underline-offset: 3px; }
-    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
-    .topbar {
-      position: sticky; top: 0; z-index: 10;
-      background: rgba(246, 244, 238, .94);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
-    }
-    .nav { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 22px; }
-    .brand { font-weight: 780; letter-spacing: -.02em; text-decoration: none; line-height: 1.1; max-width: 330px; }
-    .brand small { display: block; margin-top: 5px; color: var(--muted); font-weight: 500; font-size: .73rem; letter-spacing: .04em; text-transform: uppercase; }
-    nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 16px; }
-    nav a { color: var(--muted); font-size: .9rem; text-decoration: none; }
-    nav a:hover { color: var(--forest); }
-    .hero { background: var(--forest); color: var(--white); }
-    .hero-grid { min-height: 630px; display: grid; grid-template-columns: 1.03fr .97fr; }
-    .hero-copy { padding: 86px clamp(28px, 6vw, 80px) 74px 0; display: flex; flex-direction: column; justify-content: flex-end; }
-    .eyebrow { color: #b9d1a9; font-size: .78rem; letter-spacing: .15em; text-transform: uppercase; font-weight: 750; }
-    h1, h2, h3, p { margin-top: 0; }
-    h1 { max-width: 700px; margin: 14px 0 23px; font-family: Georgia, "Times New Roman", serif; font-size: clamp(3.1rem, 7vw, 6.7rem); line-height: .94; letter-spacing: -.055em; font-weight: 500; }
-    .hero p { max-width: 610px; font-size: clamp(1.05rem, 1.45vw, 1.28rem); color: #e3eee0; }
-    .button-row { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 12px; }
-    .button { display: inline-block; padding: 11px 16px; border: 1px solid #dbe8cf; color: #fff; text-decoration: none; font-weight: 720; font-size: .92rem; }
-    .button:hover { background: #fff; color: var(--forest); }
-    .button.fill { background: #dbe8cf; color: var(--forest); }
-    .hero-image { min-height: 430px; background: linear-gradient(0deg, rgba(7,28,23,.28), rgba(7,28,23,.04)), url("assets/images/clean-lab.jpg") center / cover no-repeat; }
-    section { padding: 86px 0; }
-    .intro { display: grid; grid-template-columns: .78fr 1.22fr; gap: clamp(32px, 7vw, 100px); border-bottom: 1px solid var(--line); }
-    .kicker { color: var(--clay); font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 800; }
-    h2 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.25rem, 4.6vw, 4.25rem); line-height: 1.02; letter-spacing: -.04em; font-weight: 500; }
-    .lead { font-size: clamp(1.14rem, 1.8vw, 1.48rem); line-height: 1.55; }
-    .muted { color: var(--muted); }
-    .themes { background: var(--sand); }
-    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 34px; }
-    .card { padding: 28px; border-top: 4px solid var(--moss); background: var(--white); }
-    .card h3 { font-family: Georgia, "Times New Roman", serif; font-size: 1.65rem; line-height: 1.12; font-weight: 500; }
-    .feature { padding: 0; background: #1d302a; color: #f6f4ee; }
-    .feature-grid { display: grid; grid-template-columns: 1.08fr .92fr; min-height: 560px; }
-    .feature-image { background: url("assets/images/cave-excavation.jpg") center / cover no-repeat; min-height: 340px; }
-    .feature-copy { padding: clamp(40px, 7vw, 86px); align-self: center; }
-    .feature-copy .kicker { color: #c5dcae; }
-    .feature-copy h2 { margin-bottom: 22px; }
-    .feature-copy p { color: #dce7da; font-size: 1.08rem; }
-    .projects { display: grid; grid-template-columns: .78fr 1.22fr; gap: clamp(32px, 7vw, 100px); }
-    .project-list { border-top: 1px solid var(--line); }
-    .project { display: grid; grid-template-columns: 150px 1fr; gap: 24px; padding: 24px 0; border-bottom: 1px solid var(--line); }
-    .tag { color: var(--clay); font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; font-weight: 800; padding-top: 5px; }
-    .project h3 { margin-bottom: 7px; font-family: Georgia, "Times New Roman", serif; font-size: 1.55rem; line-height: 1.1; font-weight: 500; }
-    .project p { margin-bottom: 0; color: var(--muted); }
-    .people { background: #edf0e6; }
-    .people-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 30px; }
-    .person { padding: 30px; background: var(--white); border: 1px solid rgba(20,36,31,.1); }
-    .person h3 { margin-bottom: 6px; font-family: Georgia, "Times New Roman", serif; font-weight: 500; font-size: 2rem; }
-    .role { color: var(--clay); font-size: .8rem; letter-spacing: .11em; text-transform: uppercase; font-weight: 800; }
-    .person p { margin-top: 18px; color: var(--muted); }
-    .links { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-    .link-block { padding: 26px; background: var(--forest); color: white; text-decoration: none; min-height: 155px; display: flex; flex-direction: column; justify-content: space-between; }
-    .link-block:nth-child(2) { background: var(--clay); }
-    .link-block:nth-child(3) { background: #55775e; }
-    .link-block:nth-child(4) { background: #343d37; }
-    .link-block span { color: rgba(255,255,255,.78); font-size: .85rem; }
-    .link-block strong { font-family: Georgia, "Times New Roman", serif; font-size: 1.65rem; line-height: 1.1; font-weight: 500; }
-    footer { padding: 48px 0; background: #101c18; color: #dbe5d9; }
-    .footer-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 30px; }
-    footer p { margin-bottom: 0; color: #b7c7bb; }
-    footer a { color: #fff; }
-    @media (max-width: 800px) {
-      .nav { padding: 12px 0; align-items: flex-start; }
-      nav { gap: 9px 13px; }
-      .hero-grid, .feature-grid, .intro, .projects { grid-template-columns: 1fr; }
-      .hero-copy { padding: 74px 0 52px; }
-      .hero-image { min-height: 340px; }
-      .cards, .people-grid, .links { grid-template-columns: 1fr; }
-      .project { grid-template-columns: 1fr; gap: 5px; }
-      section { padding: 64px 0; }
-      .feature-copy { padding: 56px 0; }
-    }
+    :root { --ink:#14241f; --muted:#53635c; --paper:#f6f4ee; --sand:#e8e1d2; --forest:#183d35; --moss:#6f8f70; --clay:#b65c3b; --line:rgba(20,36,31,.16); --white:#fffefa; }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--paper); font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; line-height:1.6; }
+    a { color:inherit; text-underline-offset:3px; } .wrap { width:min(1120px,calc(100% - 40px)); margin:0 auto; }
+    .topbar { position:sticky; top:0; z-index:10; background:rgba(246,244,238,.94); backdrop-filter:blur(10px); border-bottom:1px solid var(--line); }
+    .nav { min-height:68px; display:flex; align-items:center; justify-content:space-between; gap:22px; }
+    .brand { font-weight:780; letter-spacing:-.02em; text-decoration:none; line-height:1.1; max-width:330px; }
+    .brand small { display:block; margin-top:5px; color:var(--muted); font-weight:500; font-size:.73rem; letter-spacing:.04em; text-transform:uppercase; }
+    nav { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:16px; } nav a { color:var(--muted); font-size:.9rem; text-decoration:none; } nav a:hover { color:var(--forest); }
+    .hero { background:var(--forest); color:var(--white); }.hero-grid { min-height:630px; display:grid; grid-template-columns:1.03fr .97fr; }
+    .hero-copy { padding:86px clamp(28px,6vw,80px) 74px 0; display:flex; flex-direction:column; justify-content:flex-end; }
+    .eyebrow { color:#b9d1a9; font-size:.78rem; letter-spacing:.15em; text-transform:uppercase; font-weight:750; }
+    h1,h2,h3,p { margin-top:0; } h1 { max-width:700px; margin:14px 0 23px; font-family:Georgia,"Times New Roman",serif; font-size:clamp(3.1rem,7vw,6.7rem); line-height:.94; letter-spacing:-.055em; font-weight:500; }
+    .hero p { max-width:610px; font-size:clamp(1.05rem,1.45vw,1.28rem); color:#e3eee0; }.button-row { margin-top:16px; display:flex; flex-wrap:wrap; gap:12px; }
+    .button { display:inline-block; padding:11px 16px; border:1px solid #dbe8cf; color:#fff; text-decoration:none; font-weight:720; font-size:.92rem; }.button:hover { background:#fff; color:var(--forest); }.button.fill { background:#dbe8cf; color:var(--forest); }
+    .hero-image { min-height:430px; background:linear-gradient(0deg,rgba(7,28,23,.28),rgba(7,28,23,.04)),url("assets/images/clean-lab.jpg") center / cover no-repeat; }
+    section { padding:86px 0; }.intro { display:grid; grid-template-columns:.78fr 1.22fr; gap:clamp(32px,7vw,100px); border-bottom:1px solid var(--line); }
+    .kicker { color:var(--clay); font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; font-weight:800; }h2 { font-family:Georgia,"Times New Roman",serif; font-size:clamp(2.25rem,4.6vw,4.25rem); line-height:1.02; letter-spacing:-.04em; font-weight:500; }.lead { font-size:clamp(1.14rem,1.8vw,1.48rem); line-height:1.55; }.muted { color:var(--muted); }
+    .themes { background:var(--sand); }.cards { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:34px; }.card { padding:28px; border-top:4px solid var(--moss); background:var(--white); }.card h3 { font-family:Georgia,"Times New Roman",serif; font-size:1.65rem; line-height:1.12; font-weight:500; }
+    .feature { padding:0; background:#1d302a; color:#f6f4ee; }.feature-grid { display:grid; grid-template-columns:1.08fr .92fr; min-height:560px; }.feature-image { background:url("assets/images/cave-excavation.jpg") center / cover no-repeat; min-height:340px; }.feature-copy { padding:clamp(40px,7vw,86px); align-self:center; }.feature-copy .kicker { color:#c5dcae; }.feature-copy h2 { margin-bottom:22px; }.feature-copy p { color:#dce7da; font-size:1.08rem; }
+    .projects { display:grid; grid-template-columns:.78fr 1.22fr; gap:clamp(32px,7vw,100px); }.project-list { border-top:1px solid var(--line); }.project { display:grid; grid-template-columns:150px 1fr; gap:24px; padding:24px 0; border-bottom:1px solid var(--line); }.tag { color:var(--clay); font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; font-weight:800; padding-top:5px; }.project h3 { margin-bottom:7px; font-family:Georgia,"Times New Roman",serif; font-size:1.55rem; line-height:1.1; font-weight:500; }.project p { margin-bottom:0; color:var(--muted); }
+    .people { background:#edf0e6; }.people-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:30px; }.person { padding:30px; background:var(--white); border:1px solid rgba(20,36,31,.1); }.person h3 { margin-bottom:6px; font-family:Georgia,"Times New Roman",serif; font-weight:500; font-size:2rem; }.role { color:var(--clay); font-size:.8rem; letter-spacing:.11em; text-transform:uppercase; font-weight:800; }.person p { margin-top:18px; color:var(--muted); }
+    .links { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; }.link-block { padding:26px; background:var(--forest); color:#fff; text-decoration:none; min-height:155px; display:flex; flex-direction:column; justify-content:space-between; }.link-block:nth-child(2) { background:var(--clay); }.link-block:nth-child(3) { background:#55775e; }.link-block:nth-child(4) { background:#343d37; }.link-block:nth-child(5) { background:#785f3c; }.link-block span { color:rgba(255,255,255,.78); font-size:.85rem; }.link-block strong { font-family:Georgia,"Times New Roman",serif; font-size:1.65rem; line-height:1.1; font-weight:500; }
+    footer { padding:48px 0; background:#101c18; color:#dbe5d9; }.footer-grid { display:grid; grid-template-columns:1.2fr .8fr; gap:30px; } footer p { margin-bottom:0; color:#b7c7bb; } footer a { color:#fff; }
+    @media (max-width:800px) { .nav { padding:12px 0; align-items:flex-start; } nav { gap:9px 13px; }.hero-grid,.feature-grid,.intro,.projects { grid-template-columns:1fr; }.hero-copy { padding:74px 0 52px; }.hero-image { min-height:340px; }.cards,.people-grid,.links { grid-template-columns:1fr; }.project { grid-template-columns:1fr; gap:5px; }section { padding:64px 0; }.feature-copy { padding:56px 0; } }
   </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="wrap nav">
-      <a class="brand" href="#top">Biodiversity &amp; Paleogenomics Group<small>University of Oslo</small></a>
-      <nav aria-label="Primary navigation">
-        <a href="#research">Research</a>
-        <a href="#projects">Projects</a>
-        <a href="#people">People</a>
-        <a href="#links">Links</a>
-      </nav>
-    </div>
-  </header>
-
+  <header class="topbar"><div class="wrap nav"><a class="brand" href="#top">Biodiversity &amp; Paleogenomics Group<small>University of Oslo</small></a><nav aria-label="Primary navigation"><a href="#research">Research</a><a href="#projects">Projects</a><a href="#people">People</a><a href="#links">Project links</a></nav></div></header>
   <main id="top">
-    <section class="hero">
-      <div class="wrap hero-grid">
-        <div class="hero-copy">
-          <div class="eyebrow">Ecology, Biodiversity and Evolution · UiO</div>
-          <h1>Reading biodiversity through time.</h1>
-          <p>We combine ancient DNA, paleogenomics, ecology, archaeology, and computational biology to understand how species and ecosystems respond to environmental change.</p>
-          <div class="button-row">
-            <a class="button fill" href="#research">Our research</a>
-            <a class="button" href="https://www.mn.uio.no/cees/english/people/core/sanneb/" target="_blank" rel="noopener">Sanne Boessenkool at UiO</a>
-          </div>
-        </div>
-        <div class="hero-image" role="img" aria-label="Ancient DNA clean laboratory work"></div>
-      </div>
-    </section>
-
-    <section class="wrap intro" id="research">
-      <div><div class="kicker">Our approach</div><h2>Past ecosystems, present questions.</h2></div>
-      <div>
-        <p class="lead">The Biodiversity and Paleogenomics Group studies the evolutionary and ecological processes shaping population and species distributions across space and time.</p>
-        <p class="muted">We work with ancient DNA recovered from bones, sediments, museum and archaeological material, and environmental archives. By combining molecular evidence with ecological, geological, and archaeological data, we investigate both natural and human-driven environmental change—from recent history to the Holocene and Pleistocene.</p>
-      </div>
-    </section>
-
-    <section class="themes">
-      <div class="wrap">
-        <div class="kicker">Research themes</div>
-        <h2>Methods that connect deep time and living systems.</h2>
-        <div class="cards">
-          <article class="card">
-            <h3>Ancient DNA &amp; paleogenomics</h3>
-            <p>DNA from bones, sediments, museum collections, and other archives to reconstruct past biodiversity, population history, and ecological change.</p>
-          </article>
-          <article class="card">
-            <h3>Biodiversity through time</h3>
-            <p>Evolutionary and ecological drivers of species distributions, including climate change, landscape transformation, and human impacts.</p>
-          </article>
-          <article class="card">
-            <h3>Environmental reconstruction</h3>
-            <p>Interdisciplinary work combining genomics with archaeology, zooarchaeology, geology, palaeoecology, and reproducible computation.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="feature">
-      <div class="wrap feature-grid">
-        <div class="feature-image" role="img" aria-label="Cave excavation and sediment archive"></div>
-        <div class="feature-copy">
-          <div class="kicker">Research environments</div>
-          <h2>From cave deposits to environmental DNA.</h2>
-          <p>We use multi-proxy approaches to explore long-term biodiversity and ecosystem dynamics. Our research integrates sedimentary DNA and ancient DNA with contextual information from field, museum, archaeological, and geological collections.</p>
-          <p>Our work is collaborative by design: meaningful reconstructions of past environments require evidence and expertise across disciplines.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="wrap projects" id="projects">
-      <div><div class="kicker">Selected work</div><h2>Projects and collaborations.</h2><p class="muted">Project pages, open code, datasets, and publications will be added as they become public.</p></div>
-      <div class="project-list">
-        <article class="project">
-          <div class="tag">Paleogenomics</div>
-          <div><h3>High-latitude past ecosystems</h3><p>Ancient DNA and multi-proxy research examining faunal diversity, ecosystem change, and human-environment interactions in Nordic archaeological and natural archives.</p></div>
-        </article>
-        <article class="project">
-          <div class="tag">SedaDNA</div>
-          <div><h3>Environmental archives</h3><p>Using DNA preserved in sediments and other environmental material to reconstruct past communities, ecological transitions, and long-term responses to change.</p></div>
-        </article>
-        <article class="project">
-          <div class="tag">Collaboration</div>
-          <div><h3>Arctic and global change</h3><p>Interdisciplinary research connecting biodiversity, climate, landscape, and sustainable environmental management across northern and other rapidly changing regions.</p></div>
-        </article>
-      </div>
-    </section>
-
-    <section class="people" id="people">
-      <div class="wrap">
-        <div class="kicker">People</div>
-        <h2>Group members.</h2>
-        <div class="people-grid">
-          <article class="person">
-            <div class="role">Principal Investigator</div>
-            <h3>Sanne Boessenkool</h3>
-            <p>Sanne studies evolutionary and ecological processes driving population and species distributions through space and time, with a focus on ancient DNA, paleogenomics, biodiversity, and environmental change.</p>
-            <a href="https://www.mn.uio.no/cees/english/people/core/sanneb/" target="_blank" rel="noopener">Official UiO profile →</a>
-          </article>
-          <article class="person">
-            <div class="role">Postdoctoral researcher</div>
-            <h3>Theda Bartolomaeus</h3>
-            <p>Theda works on ancient environmental DNA, metagenomics, microbial ecology, and reproducible bioinformatics approaches for reconstructing past ecosystems.</p>
-            <a href="https://github.com/Theda-sys" target="_blank" rel="noopener">GitHub profile →</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="wrap" id="links">
-      <div class="kicker">Further information</div>
-      <h2>Find our work and partners.</h2>
-      <div class="links">
-        <a class="link-block" href="https://www.mn.uio.no/cees/english/" target="_blank" rel="noopener"><span>University of Oslo</span><strong>CEES</strong></a>
-        <a class="link-block" href="https://www.mn.uio.no/ibv/english/" target="_blank" rel="noopener"><span>University of Oslo</span><strong>Department of Biosciences</strong></a>
-        <a class="link-block" href="https://uit.no/polhavet2050" target="_blank" rel="noopener"><span>Associated programme</span><strong>Polhavet 2050</strong></a>
-        <a class="link-block" href="https://github.com/biodiversity-paleogenomics-group" target="_blank" rel="noopener"><span>Open science</span><strong>Our GitHub organisation</strong></a>
-      </div>
-    </section>
+    <section class="hero"><div class="wrap hero-grid"><div class="hero-copy"><div class="eyebrow">Ecology, Biodiversity and Evolution · UiO</div><h1>Reading biodiversity through time.</h1><p>We combine ancient DNA, paleogenomics, ecology, archaeology, and computational biology to understand how species and ecosystems respond to environmental change.</p><div class="button-row"><a class="button fill" href="#research">Our research</a><a class="button" href="https://www.mn.uio.no/cees/english/people/core/sanneb/" target="_blank" rel="noopener">Sanne Boessenkool at UiO</a></div></div><div class="hero-image" role="img" aria-label="Ancient DNA clean laboratory work"></div></div></section>
+    <section class="wrap intro" id="research"><div><div class="kicker">Our approach</div><h2>Past ecosystems, present questions.</h2></div><div><p class="lead">The Biodiversity and Paleogenomics Group studies the evolutionary and ecological processes shaping population and species distributions across space and time.</p><p class="muted">We work with ancient DNA recovered from bones, sediments, museum and archaeological material, and environmental archives. By combining molecular evidence with ecological, geological, and archaeological data, we investigate both natural and human-driven environmental change—from recent history to the Holocene and Pleistocene.</p></div></section>
+    <section class="themes"><div class="wrap"><div class="kicker">Research themes</div><h2>Methods that connect deep time and living systems.</h2><div class="cards"><article class="card"><h3>Ancient DNA &amp; paleogenomics</h3><p>DNA from bones, sediments, museum collections, and other archives to reconstruct past biodiversity, population history, and ecological change.</p></article><article class="card"><h3>Biodiversity through time</h3><p>Evolutionary and ecological drivers of species distributions, including climate change, landscape transformation, and human impacts.</p></article><article class="card"><h3>Environmental reconstruction</h3><p>Interdisciplinary work combining genomics with archaeology, zooarchaeology, geology, palaeoecology, and reproducible computation.</p></article></div></div></section>
+    <section class="feature"><div class="wrap feature-grid"><div class="feature-image" role="img" aria-label="Cave excavation and sediment archive"></div><div class="feature-copy"><div class="kicker">Research environments</div><h2>From cave deposits to environmental DNA.</h2><p>We use multi-proxy approaches to explore long-term biodiversity and ecosystem dynamics. Our research integrates sedimentary DNA and ancient DNA with contextual information from field, museum, archaeological, and geological collections.</p><p>Our work is collaborative by design: meaningful reconstructions of past environments require evidence and expertise across disciplines.</p></div></div></section>
+    <section class="wrap projects" id="projects"><div><div class="kicker">Selected research</div><h2>Projects and collaborations.</h2><p class="muted">Explore the public research programmes associated with the group below.</p></div><div class="project-list"><article class="project"><div class="tag">EcoArch</div><div><h3><a href="https://www.ecoarch-project.org/" target="_blank" rel="noopener">Ecological Archaeologies of the Afrotropics →</a></h3><p>ERC Synergy research investigating how people and climate have shaped landscapes and biodiversity across Africa and Arabia.</p></div></article><article class="project"><div class="tag">EvoCave</div><div><h3><a href="https://www.mn.uio.no/cees/english/research/projects/101491/" target="_blank" rel="noopener">122,000 years of Nordic fauna →</a></h3><p>An interdisciplinary reconstruction of faunal diversity and ecosystem history in a high-latitude Norwegian karst cave across an interglacial–glacial cycle.</p></div></article><article class="project"><div class="tag">SaveCave</div><div><h3><a href="https://www.mn.uio.no/cees/english/research/projects/savecave/index.html" target="_blank" rel="noopener">Caves, biodiversity, and human impact →</a></h3><p>Integrating zooarchaeology, palaeogenomics, archaeology, and geology to study and protect cave archives across Fennoscandia.</p></div></article><article class="project"><div class="tag">Rea:Life</div><div><h3><a href="https://www.uio.no/english/research/strategic-research-areas/life-science/research/convergence-environments/realife/projects/wp2.html" target="_blank" rel="noopener">Tracing medicinal plants →</a></h3><p>Using field studies and sedimentary ancient DNA to identify plants used in monastic, hospital, and quarantine-island gardens.</p></div></article><article class="project"><div class="tag">Polhavet 2050</div><div><h3><a href="https://uit.no/polhavet2050" target="_blank" rel="noopener">Arctic Ocean research →</a></h3><p>A Norwegian interdisciplinary research programme developing knowledge for sustainable management of a rapidly changing Arctic Ocean.</p></div></article></div></section>
+    <section class="people" id="people"><div class="wrap"><div class="kicker">People</div><h2>Group members.</h2><div class="people-grid"><article class="person"><div class="role">Principal Investigator</div><h3>Sanne Boessenkool</h3><p>Sanne studies evolutionary and ecological processes driving population and species distributions through space and time, with a focus on ancient DNA, paleogenomics, biodiversity, and environmental change.</p><a href="https://www.mn.uio.no/cees/english/people/core/sanneb/" target="_blank" rel="noopener">Official UiO profile →</a></article><article class="person"><div class="role">MSCA postdoctoral fellow</div><h3>Theda Bartolomaeus</h3><p>Microbial Evolution and Legacy of Ancient Climate Change (MELT).</p><a href="https://www.mn.uio.no/ibv/english/people/aca/tubartol/" target="_blank" rel="noopener">UiO profile →</a></article><article class="person"><div class="role">Visiting EMBO fellow</div><h3>Samantha López Clinton</h3><p>Reconstructing ancient genomes from ancient material.</p></article><article class="person"><div class="role">PhD candidate</div><h3>Lea Frank</h3><p>High-latitude Fennoscandic caves and Stone Age landscapes: a multi-proxy approach to examine faunal diversity and human impact (SaveCave).</p><a href="https://www.mn.uio.no/ibv/personer/vit/learfr/" target="_blank" rel="noopener">UiO profile →</a></article><article class="person"><div class="role">PhD candidate</div><h3>Aurélie Boilard</h3><p>122,000 years of fauna diversity of Nordic ecosystems explored through paleogenomics (EvoCave).</p></article><article class="person"><div class="role">PhD candidate</div><h3>Rebecca Blakeney</h3><p>Tracing the Ingredients: Medicinal Plants in Monastic and Hospital Gardens (Rea:Life).</p><a href="https://www.uio.no/english/research/strategic-research-areas/life-science/research/convergence-environments/realife/people/rebecca-blakeney.html" target="_blank" rel="noopener">UiO profile →</a></article><article class="person"><div class="role">MSc student</div><h3>Emma Katrin Onshuus</h3><p>Tracking Holocene ecosystem dynamics from a paleo-archive preserved in a cave in high-latitude Fennoscandia.</p></article><article class="person"><div class="role">MSc student</div><h3>Carina Sveen</h3><p>Holocene distribution of marine biodiversity preserved in caves along the coast of Norway: the fish tale of Solsemhula.</p></article><article class="person"><div class="role">BSc student</div><h3>Sunniva Alm-Kristiansen</h3><p>Small mammal size variation through the Holocene.</p></article></div></div></section>
+    <section class="wrap" id="links"><div class="kicker">Research projects</div><h2>Explore our projects.</h2><div class="links"><a class="link-block" href="https://www.ecoarch-project.org/" target="_blank" rel="noopener"><span>ERC Synergy project</span><strong>EcoArch</strong></a><a class="link-block" href="https://www.mn.uio.no/cees/english/research/projects/101491/" target="_blank" rel="noopener"><span>UiO / CEES project</span><strong>EvoCave</strong></a><a class="link-block" href="https://uit.no/polhavet2050" target="_blank" rel="noopener"><span>Norwegian research programme</span><strong>Polhavet 2050</strong></a><a class="link-block" href="https://www.uio.no/english/research/strategic-research-areas/life-science/research/convergence-environments/realife/projects/wp2.html" target="_blank" rel="noopener"><span>UiO:Life Science project</span><strong>Rea:Life</strong></a><a class="link-block" href="https://www.mn.uio.no/cees/english/research/projects/savecave/index.html" target="_blank" rel="noopener"><span>UiO / CEES project</span><strong>SaveCave</strong></a><a class="link-block" href="https://github.com/biodiversity-paleogenomics-group" target="_blank" rel="noopener"><span>Open science</span><strong>Our GitHub organisation</strong></a></div></section>
   </main>
-
-  <footer>
-    <div class="wrap footer-grid">
-      <div>
-        <strong>Biodiversity and Paleogenomics Group</strong>
-        <p>Ecology, Biodiversity and Evolution<br>Department of Biosciences<br>Faculty of Mathematics and Natural Sciences<br>University of Oslo, Norway</p>
-      </div>
-      <div>
-        <strong>Contact</strong>
-        <p><a href="https://www.mn.uio.no/cees/english/people/core/sanneb/" target="_blank" rel="noopener">Contact Sanne Boessenkool via UiO →</a></p>
-      </div>
-    </div>
-  </footer>
+  <footer><div class="wrap footer-grid"><div><strong>Biodiversity and Paleogenomics Group</strong><p>Ecology, Biodiversity and Evolution<br>Department of Biosciences<br>Faculty of Mathematics and Natural Sciences<br>University of Oslo, Norway</p></div><div><strong>Contact</strong><p><a href="https://www.mn.uio.no/cees/english/people/core/sanneb/" target="_blank" rel="noopener">Contact Sanne Boessenkool via UiO →</a></p></div></div></footer>
 </body>
 </html>
