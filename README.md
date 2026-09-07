@@ -1,2 +1,6 @@
 # biodiversity-paleogenomics-group.github.io
-Public website for the Biodiversity and Paleogenomics Group at Faculty of Mathematics and Natural Sciences, Department of Biosciences, University of Oslo
+Biodiversity and Paleogenomics Group
+Ecology, Biodiversity and Evolution (EBE)
+Department of Biosciences
+Faculty of Mathematics and Natural Sciences
+University of Oslo
